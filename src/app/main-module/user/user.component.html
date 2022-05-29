@@ -1,0 +1,10 @@
+<div class="global-container">
+    <nav mat-tab-nav-bar [tabPanel]="tabPanel" [style.margin-bottom]="'20px'">
+        <a [routerLink]="tab.url" mat-tab-link *ngFor="let tab of tabs"
+           (click)="activeLink = tab.url"
+           [active]="activeLink == tab.url"> {{tab.name}} </a>
+      </nav>
+      <mat-tab-nav-panel #tabPanel>
+          <router-outlet></router-outlet>
+      </mat-tab-nav-panel>
+</div>

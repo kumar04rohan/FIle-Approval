@@ -1,0 +1,25 @@
+table {
+    width: 80%;
+  }
+
+.table {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.no-files {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.container {
+  height: 100%;
+}
+
+th {
+  color: black;
+  font-size: 1rem;
+}

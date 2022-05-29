@@ -1,0 +1,19 @@
+<div>
+    <div class="container">
+        <mat-card class="file-container">
+            <mat-card-title>Upload File</mat-card-title>
+            <mat-card-content>
+                <!-- <input type="file"> -->
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile" (change)="onFileSelected($event)">
+                <br>
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-card-actions>
+                   <button (click)="sendFile()" mat-raised-button color="primary">upload</button>
+                </mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;a</div>

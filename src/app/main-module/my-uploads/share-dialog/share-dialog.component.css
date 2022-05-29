@@ -1,0 +1,12 @@
+.mat-typography {
+    padding: 0;
+}
+
+.content {
+    border-bottom: 1px solid rgb(232, 224, 224);
+    /* padding: 20px; */
+}
+
+.mat-dialog-content {
+    padding: 20px;
+}

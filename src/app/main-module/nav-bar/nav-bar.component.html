@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+        <a *ngIf="!manager" [routerLink]="'../upload'"><li>Upload</li></a>
+        <a *ngIf="!manager" [routerLink]="'../my-uploads'"><li>My Uploads</li></a>
+        <a *ngIf="!manager" [routerLink]="'../shared'"><li>Shared</li></a>
+        <a *ngIf="manager" [routerLink]="'../pending'"><li>Pending Requests</li></a>
+        <a *ngIf="manager" [routerLink]="'../approved'"><li>Approved Requests</li></a>
+        <a *ngIf="manager" [routerLink]="'../denied'"><li>Denied Requests</li></a>
+    </ul>
+</nav>
