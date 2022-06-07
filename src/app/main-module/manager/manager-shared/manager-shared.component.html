@@ -1,0 +1,43 @@
+<div>
+    <div class="container">
+        <div class="isLoading" *ngIf="isLoading">
+            <img src="../../../assets/images/loading.gif" alt="loading...">
+        </div>
+        <div *ngIf="noFiles && !isLoading" class="no-files">
+            No files to display
+        </div>
+        <div class="table" *ngIf="!noFiles && !isLoading">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef width="30%"> File Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="shared_with">
+                    <th mat-header-cell *matHeaderCellDef width="30%"> Shared With </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Version Column -->
+                <ng-container matColumnDef="version">
+                    <th mat-header-cell *matHeaderCellDef width="20%"> Version </th>
+                    <td mat-cell *matCellDef="let element"> {{element.version}} </td>
+                </ng-container>
+
+                 <!-- View Column -->
+                 <ng-container matColumnDef="view">
+                    <th mat-header-cell *matHeaderCellDef width="20%"></th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon (click)="view(element.id)" aria-hidden="false" aria-label="Example home icon">info
+                        </mat-icon>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

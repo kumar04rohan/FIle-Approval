@@ -1,0 +1,27 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
+
+
+@NgModule({
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    MobileHeaderComponent,
+    SidebarComponent
+  ],
+  imports: [
+    CommonModule,
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    MobileHeaderComponent,
+    SidebarComponent
+  ]
+})
+export class CommonModuleModule { }

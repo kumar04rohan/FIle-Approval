@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+You can add global styles to this file,
+and also import other style files * {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.global-container {
+  min-height: calc(100vh - 150px);
+  background-color: rgb(219, 219, 219);
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+.no-files {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+th {
+  color: black;
+  font-size: 1rem;
+}
+
+.mat-icon {
+    cursor: pointer;
+}
+
+.isLoading {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.isLoading img {
+  width: 50px;
+}
+
+

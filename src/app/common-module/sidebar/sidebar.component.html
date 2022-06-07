@@ -1,0 +1,5 @@
+<div class="sidebar-container">
+    <div class="sidebar-element" *ngFor="let sidebarEle of sidebar.sidebarElements">
+        <a (click)="navigate(sidebarEle.url)"><div class="component-name">{{sidebarEle.component}}</div></a>
+    </div>
+</div>

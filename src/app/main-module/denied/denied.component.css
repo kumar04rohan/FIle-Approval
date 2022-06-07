@@ -1,0 +1,9 @@
+table {
+    width: 80%;
+  }
+
+.table {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}

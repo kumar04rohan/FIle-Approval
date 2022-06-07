@@ -1,0 +1,60 @@
+<div>
+    <div class="container">
+        <div class="isLoading" *ngIf="isLoading">
+            <img src="../../../assets/images/loading.gif" alt="loading...">
+        </div>
+        <div *ngIf="noFiles && !isLoading" class="no-files">
+            No files to display
+        </div>
+        <div class="table" *ngIf="!noFiles && !isLoading">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef width="25%"> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Version Column -->
+                <ng-container matColumnDef="version">
+                    <th mat-header-cell *matHeaderCellDef width="15%"> Version </th>
+                    <td mat-cell *matCellDef="let element"> {{element.version}} </td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef width="25%"> Approval Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+
+                <!-- Department Column -->
+                <ng-container matColumnDef="department">
+                    <th mat-header-cell *matHeaderCellDef width="25%"> Department </th>
+                    <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+                </ng-container>
+
+                <!-- View Column -->
+                <ng-container matColumnDef="view_share">
+                    <th mat-header-cell *matHeaderCellDef width="10%"></th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon (click)="view(element.id)" aria-hidden="false" aria-label="Example home icon">info
+                        </mat-icon>
+                        <mat-icon [style.margin-left]="'10px'" (click)="share(element.id)" aria-hidden="false" aria-label="Example home icon">share
+                        </mat-icon>
+                    </td>
+                </ng-container>
+
+                <!-- Share Column -->
+                <ng-container matColumnDef="share">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon (click)="share(element.id)" aria-hidden="false" aria-label="Example home icon">share
+                        </mat-icon>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+    </div>
+</div>

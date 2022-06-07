@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+a {
+    font-size: 1.1rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+.sidebar {
+    width: 250px;
+    height: calc(100vh - 150px);
+    position: absolute;
+    border-right: 1px solid black;
+    z-index: 5;
+    translate: 0.5s;
+}
+
+.toggle {
+    transform: translateX(-250px);
+}
+
+.ham {
+    padding: 3px;
+}
+
+.mat-icon {
+    cursor: pointer;
+}

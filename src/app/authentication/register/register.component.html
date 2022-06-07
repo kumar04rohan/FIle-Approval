@@ -1,0 +1,72 @@
+<div class="global-container login-container">
+    <mat-card>
+        <mat-card-title>Register</mat-card-title>
+        <mat-card-content>
+            <form class="login-form" [formGroup]="Form" (ngSubmit)="registerUser()">
+                <mat-form-field class="login-full-width" appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input type="email" matInput formControlName="username" [errorStateMatcher]="matcher"
+                        placeholder="Ex. rohan.4">
+                    <mat-error *ngIf="Form.get('username').hasError('minlength') && !Form.get('username').hasError('required')">
+                        Minimum length is 4!
+                    </mat-error>
+                    <mat-error *ngIf="Form.get('username').hasError('maxlength') && !Form.get('username').hasError('required')">
+                        Maximum length is 16!
+                    </mat-error>
+                    <mat-error *ngIf="Form.get('username').hasError('required')">
+                        Username is required!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="login-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                        placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="Form.get('email').hasError('email') && !Form.get('email').hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="Form.get('email').hasError('required')">
+                        Email is required!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="login-full-width" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="Form.get('password').hasError('minlength') && !Form.get('password').hasError('required')">
+                        Minimum length is six!
+                    </mat-error>
+                    <mat-error *ngIf="Form.get('password').hasError('required')">
+                        Password is required!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="login-full-width" appearance="fill">
+                    <mat-label>Phone Number</mat-label>
+                    <input type="number" matInput formControlName="phone_no" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="Form.get('phone_no').hasError('pattern') && !Form.get('phone_no').hasError('required')">
+                        Invalid type!
+                    </mat-error>
+                    <mat-error *ngIf="Form.get('phone_no').hasError('required')">
+                        Password is required!
+                    </mat-error>
+                </mat-form-field>
+                <div class="select-area">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose an option</mat-label>
+                        <mat-select formControlName="role_id">
+                          <mat-option value="2">Manager</mat-option>
+                          <mat-option value="1">User</mat-option>
+                        </mat-select>
+                    </mat-form-field> 
+                    <mat-form-field appearance="fill" *ngIf="Form.get('role_id').value == '1'">
+                        <mat-label>Choose an option</mat-label>
+                        <mat-select formControlName="reports_to">
+                          <mat-option *ngFor="let manager of managerList" [value]="manager.id">{{manager.username}}</mat-option>
+                        </mat-select>
+                    </mat-form-field> 
+                </div>
+                <mat-card-actions>
+                    <button type="submit" mat-raised-button color="primary">Register</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

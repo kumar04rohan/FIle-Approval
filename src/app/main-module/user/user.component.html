@@ -1,0 +1,14 @@
+<div class="global-container">
+    <mat-icon *ngIf="toggle && sidebar" (click)="toggle = false" class="ham" aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+    <mat-icon *ngIf="!toggle && sidebar" (click)="toggle = true" class="ham" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+    <div class="sidebar" *ngIf="sidebar" [ngClass]="toggle?'toggle':''">
+        <app-sidebar></app-sidebar>
+    </div>
+    <nav mat-tab-nav-bar [tabPanel]="tabPanel" [style.margin-bottom]="'20px'" *ngIf="!sidebar">
+        <a [routerLink]="tab.url" mat-tab-link *ngFor="let tab of tabs" (click)="activeLink = tab.url"
+            [active]="activeLink == tab.url"> {{tab.name}} </a>
+    </nav>
+    <mat-tab-nav-panel #tabPanel>
+        <router-outlet></router-outlet>
+    </mat-tab-nav-panel>
+</div>

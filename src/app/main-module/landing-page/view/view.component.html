@@ -1,0 +1,13 @@
+<div class="global-container">
+    <div class="content" *ngIf="!loading">
+        <mat-icon (click)="downloadFile()" aria-hidden="false" aria-label="Example home icon">download</mat-icon>
+        <ngx-doc-viewer 
+        [url]="url"
+        viewer="google"
+        style="width:96%;height:70vh;"
+      ></ngx-doc-viewer>
+     </div>
+     <div class="loading" *ngIf="loading">
+         <img src="../../../../assets/images/loading.gif" alt="loading...">
+     </div>
+</div>
