@@ -8,7 +8,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
 
   sidebar = false;
-  tabs = [{name:'Upload Files', url:'upload'}, {name:'My Uploads', url:'my-uploads'}, {name:'Shared Files', url:'shared'}];
+  tabs = [{name:'Internal Files', url:'internal-files'}, {name:'Upload Files', url:'upload'}, {name:'My Uploads', url:'my-uploads'}, {name:'Admin Shared Files', url:'shared'}];
   activeLink = this.tabs[0].url;
   @HostListener('window:resize', ['$event'])
   onWindowResize() {

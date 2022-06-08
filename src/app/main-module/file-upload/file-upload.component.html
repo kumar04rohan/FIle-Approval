@@ -8,14 +8,14 @@
                 <input type="file" id="myfile" name="myfile" (change)="onFileSelected($event)">
                 <br>
                 <label for="select-department">Select a department</label>
-                <select id="select-department" class="select-department">
-                    <option *ngFor="let department of departmentList" value="department.is">{{ department.name }}</option>
+                <select id="select-department" class="select-department" [(ngModel)]="department">
+                    <option *ngFor="let department of departmentList" [value]="department.id">{{ department.name }}</option>
                 </select>
                 <label for="select-permission">Select permission</label>
-                <select [(ngModel)]="permission" id="select-permission" class="select-department">
-                    <option value="1">Public</option>
+                <select [(ngModel)]="permission" id="select-permission"  [(ngModel)]="permission" class="select-department">
+                    <option value="1" selected>Public</option>
                     <option value="2">Private</option>
-                    <option value="3">Confidential</option>
+                    <option value="3" *ngIf="role_id == 2">Confidential</option>
                 </select>
             </mat-card-content>
             <mat-card-actions>

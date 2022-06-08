@@ -24,6 +24,7 @@ export const environment = {
     getPending: "https://practice4407.herokuapp.com/file/get_all_pending",
     getApproved: "https://practice4407.herokuapp.com/file/get_all_approved",
     getDenied: "https://practice4407.herokuapp.com/file/get_all_denied",
+    addDepartment: "https://practice4407.herokuapp.com/file_tag/fill_file_tag",
 
     getAllManagers:"https://practice4407.herokuapp.com/User/get_all_manager",
     fileUpload: "https://practice4407.herokuapp.com/file/fill_info",

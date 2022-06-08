@@ -23,14 +23,22 @@ export class AuthService {
     return this.httpClient
       .post<LoginResponseModel>(loginUrl, body)
       .subscribe((res) => {
-        console.log(res, 'adas');
+        console.log(res.User, 'adas');
         sessionStorage.setItem('user', JSON.stringify(res.User));
-        this.router.navigate(['user/upload']);
+        if (res.User.role_id == 1) {
+          this.router.navigate(['user/internal-files']);
+        }
+        else if (res.User.role_id == 2) {
+          this.router.navigate(['admin/upload']);
+        }
+        else {
+          console.error("Role invalid!")
+        }
       });
   }
 
   signInWithGoogle() {
-    return this.AuthLogin(new GoogleAuthProvider());
+    return this.AuthLogin(new GoogleAuthProvider().setCustomParameters({prompt: 'select_account'}));
   }
 
   AuthLogin(provider: any) {
@@ -54,8 +62,8 @@ export class AuthService {
   }
 
   logout() {
-    const auth = getAuth();
-    return signOut(auth)
+    return this.afAuth.signOut()
+    // return signOut(auth)
   }
 
   isLoggedIn() {

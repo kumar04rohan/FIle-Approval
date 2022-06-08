@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ViewComponent } from './landing-page/view/view.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ManagerSharedComponent } from './manager/manager-shared/manager-shared.component';
+import { AddDepartmentComponent } from './manager/add-department/add-department.component';
+import { InternalFilesComponent } from './internal-files/internal-files.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { ManagerSharedComponent } from './manager/manager-shared/manager-shared.
     SubscribeComponent,
     ViewComponent,
     ManagerSharedComponent,
+    AddDepartmentComponent,
+    InternalFilesComponent,
   ],
   imports: [
     CommonModule,

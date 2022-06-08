@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/app/services/http.service';
-import { displayModel } from '../approval/approval.component';
+import { displayModel } from '../landing-page/display.model';
 import { ViewDialogComponent } from '../my-uploads/view-dialog/view-dialog.component';
 
 @Component({
@@ -25,7 +25,6 @@ export class DeniedComponent implements OnInit {
   getData() {
     const userId = this.getUserInfo('id');
     this.httpService.getDeniedManagerFile().then((res: any) => {
-      console.log(res, "ressdadsa@@@");
       this.files = res.File;
       this.setDataSource();
       this.isLoading = false;
@@ -39,10 +38,11 @@ export class DeniedComponent implements OnInit {
       this.noFiles = false;
       for (let data of this.files) {
         const status = this.getApprovalStatus(data.is_approved);
-        const dataElement = {id: data.id, name:data.name, version:data.version, status:status};
+        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id};
         dataSource.push(dataElement);
       }
       this.dataSource = dataSource;
+      console.log(this.dataSource)
     }
    else {
      this.noFiles = true;
@@ -85,7 +85,6 @@ export class DeniedComponent implements OnInit {
     .then(
       (res:any) => {
         this.openViewDialog(res.File.path);
-        console.log(res.File.path, "path")
       }
     )
   }

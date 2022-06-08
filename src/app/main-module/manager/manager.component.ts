@@ -13,6 +13,7 @@ export class ManagerComponent implements OnInit {
     { name: 'Approved Requests', url: 'approved' },
     { name: 'Denied Requests', url: 'denied' },
     { name: 'Shared Files', url: 'shared' },
+    { name: 'Add Department', url: 'add-department'}
   ];
   activeLink = this.tabs[0].url;
   @HostListener('window:resize', ['$event'])

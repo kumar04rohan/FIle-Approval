@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/app/services/http.service';
+import { displayModel } from '../landing-page/display.model';
 import { ViewDialogComponent } from '../my-uploads/view-dialog/view-dialog.component';
   
-export interface displayModel {
-  id: number;
-  name: string;
-  version: number;
-  status: string;
-}
 
 @Component({
   selector: 'app-approval',
@@ -50,13 +45,13 @@ export class ApprovalComponent implements OnInit {
       this.httpService.getApprovalFiles()
       .then(
         (res:any) => {
-          console.log(res);
           this.files = res.File;
           if (this.files.length > 0) {
             this.noFiles = false;
+            this.dataSource = this.getDataSource();
           }
           else {
-            this.dataSource = this.getDataSource();
+            this.noFiles = true;
           }
           this.isLoading = false;
         }
@@ -79,7 +74,7 @@ export class ApprovalComponent implements OnInit {
       const dataSource = [];
       for (let data of this.files) {
         const status = this.getApprovalStatus(data.is_approved);
-        const dataElement = {id: data.id, name:data.name, version:data.version, status:status};
+        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id};
         dataSource.push(dataElement);
       }
       return dataSource;

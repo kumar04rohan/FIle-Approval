@@ -6,7 +6,7 @@
         <div *ngIf="noFiles && !isLoading" class="no-files">
             No files to display
         </div>
-        <div class="table" *ngIf="!noFiles && isLoading">
+        <div class="table" *ngIf="!noFiles && !isLoading">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
                 <!-- Name Column -->

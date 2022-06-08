@@ -29,12 +29,11 @@ export class HeaderComponent implements OnInit {
 
   login() {
     console.log("loggin in...")
-    this.authService.signInWithGoogle()
-    .then(
+    this.authService.signInWithGoogle().then(
       () => {
         this.loggedIn = true;
       }
-    )
+    ) 
   }
 
   subscribe() {

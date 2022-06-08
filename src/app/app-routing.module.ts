@@ -8,8 +8,10 @@ import { ApprovalComponent } from './main-module/approval/approval.component';
 import { ApprovedComponent } from './main-module/approved/approved.component';
 import { DeniedComponent } from './main-module/denied/denied.component';
 import { FileUploadComponent } from './main-module/file-upload/file-upload.component';
+import { InternalFilesComponent } from './main-module/internal-files/internal-files.component';
 import { LandingPageComponent } from './main-module/landing-page/landing-page.component';
 import { ViewComponent } from './main-module/landing-page/view/view.component';
+import { AddDepartmentComponent } from './main-module/manager/add-department/add-department.component';
 import { ManagerSharedComponent } from './main-module/manager/manager-shared/manager-shared.component';
 import { ManagerComponent } from './main-module/manager/manager.component';
 import { MyUploadsComponent } from './main-module/my-uploads/my-uploads.component';
@@ -24,7 +26,8 @@ const routes: Routes = [
   {path:'user', component:UserComponent, children:[
     {path:'upload', component:FileUploadComponent},
     {path:'my-uploads', component:MyUploadsComponent},
-    {path:'shared', component:SharedComponent}
+    {path:'shared', component:SharedComponent},
+    {path: 'internal-files', component:InternalFilesComponent}
   ]},
   {path:'admin', component:ManagerComponent, children:[
     {path: 'upload', component:FileUploadComponent},
@@ -32,7 +35,8 @@ const routes: Routes = [
     {path:'approved', component:ApprovedComponent},
     {path:'denied', component:DeniedComponent},
     {path:'my-uploads', component:MyUploadsComponent},
-    {path:'shared', component:ManagerSharedComponent}
+    {path:'shared', component:ManagerSharedComponent},
+    {path:'add-department', component:AddDepartmentComponent}
   ]}
 ];
 

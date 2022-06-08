@@ -25,13 +25,16 @@ export class SidebarComponent implements OnInit {
   initSidebar() {
     this.sidebar.sidebarElements = [];
 
+    const files = new sidebarElementModel("Internal Files", 'user/internal-files');
+    this.sidebar.sidebarElements.push(files);
+
     const upload = new sidebarElementModel("Upload File", 'user/upload');
     this.sidebar.sidebarElements.push(upload);
 
     const my_upload = new sidebarElementModel("My Uploads", 'user/my-uploads');
     this.sidebar.sidebarElements.push(my_upload);
 
-    const shared = new sidebarElementModel("Shared", 'user/shared');
+    const shared = new sidebarElementModel("Admin Shared Files", 'user/shared');
     this.sidebar.sidebarElements.push(shared);
   }
 
@@ -55,6 +58,9 @@ export class SidebarComponent implements OnInit {
 
     const shared = new sidebarElementModel("Shared", 'admin/shared');
     this.sidebar.sidebarElements.push(shared);
+
+    const department = new sidebarElementModel("Add Department", 'admin/add-department');
+    this.sidebar.sidebarElements.push(department);
   }
 
   navigate(url:string) {

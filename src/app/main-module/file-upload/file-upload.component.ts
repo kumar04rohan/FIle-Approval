@@ -14,15 +14,18 @@ export class FileUploadComponent implements OnInit {
   percentage = '0%';
   uploadFile!:File;
   permission = "1";
-  departmentList!:{name:string, tag_id:number}[]
+  department!:number;
+  role_id!:number;
+  departmentList!:{name:string, id:number}[]
   constructor(private httpService:HttpService) { }
 
   ngOnInit(): void {
-    console.log(this.getUserId(), "userId")
+    this.role_id = this.getRoleId();
     this.httpService.getAllDepartment().subscribe(
       (res:any) => {
         if(res.FileTag){
           this.departmentList = res.FileTag;
+          this.department = this.departmentList[0].id;
         }
       }
     )
@@ -33,6 +36,18 @@ export class FileUploadComponent implements OnInit {
     if (sessionStorageUser) {
       const user = JSON.parse(sessionStorageUser);
       const userId = user.id;
+      return userId;
+    }
+    else {
+      return null;
+    }
+  }
+
+  getRoleId() {
+    let sessionStorageUser:any = sessionStorage.getItem("user");
+    if (sessionStorageUser) {
+      const user = JSON.parse(sessionStorageUser);
+      const userId = user.role_id;
       return userId;
     }
     else {
@@ -58,7 +73,7 @@ export class FileUploadComponent implements OnInit {
     if (this.fileSelected) {
       const userId = this.getUserId();
       const permission = parseInt(this.permission);
-      const uploadingFile = new FileUploadModel(this.uploadFile, userId, permission, 1)
+      const uploadingFile = new FileUploadModel(this.uploadFile, userId, permission, this.department)
       this.httpService.pushFileToStorage(uploadingFile).subscribe({
         next: (percentage) => { 
 
@@ -66,6 +81,9 @@ export class FileUploadComponent implements OnInit {
             if (percentage == 100) {
 
               this.fileRef.value = null;
+              this.permission = "1";
+              this.department = 1;
+              alert("File Uploaded!")
             }
         },
         error: (error) => {

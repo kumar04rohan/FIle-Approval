@@ -1,15 +1,14 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { HttpService } from 'src/app/services/http.service';
-import { displayModel } from './display.model';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
+import { displayModel } from '../landing-page/display.model';
 
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
+  selector: 'app-internal-files',
+  templateUrl: './internal-files.component.html',
+  styleUrls: ['./internal-files.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class InternalFilesComponent implements OnInit {
 
   isLoading = true;
   files: any;
@@ -30,7 +29,7 @@ export class LandingPageComponent implements OnInit {
   }  
 
   getData() {
-    this.httpService.getDataByPermissionId(1)
+    this.httpService.getDataByPermissionId(2)
     .subscribe((res: any) => {
       this.files = res.File;
       this.setDataSource();
@@ -77,13 +76,5 @@ export class LandingPageComponent implements OnInit {
   view(id:number) {
 
     this.router.navigate(['view/'+id]);
-  }
-
-  getDepartmentList() {
-    this.httpService.getAllDepartment().subscribe(
-      (res) => {
-        console.log(res)
-      }
-    )
   }
 }

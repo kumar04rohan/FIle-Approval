@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 import { ViewDialogComponent } from './view-dialog/view-dialog.component';
@@ -36,7 +37,7 @@ export class MyUploadsComponent implements OnInit {
   viewDoc = false;
   doc = 'https://files.fm/down.php?i=axwasezb&n=SSaD.docx';
   noFiles = true;
-  constructor(private httpService: HttpService, public dialog: MatDialog) {}
+  constructor(private httpService: HttpService, public dialog: MatDialog, private router:Router) {}
 
   ngOnInit(): void {
     this.userRole = this.getUserInfo('role_id');
@@ -147,9 +148,10 @@ export class MyUploadsComponent implements OnInit {
   }
 
   view(id: number) {
-    this.httpService.getSpecificFileUrl(id).then((res: any) => {
-      this.openViewDialog(res.File.path);
-      console.log(res.File.path, 'path');
-    });
+    // this.httpService.getSpecificFileUrl(id).then((res: any) => {
+    //   this.openViewDialog(res.File.path);
+    //   console.log(res.File.path, 'path');
+    // });
+    this.router.navigate(['view/'+id])
   }
 }

@@ -1,0 +1,19 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Add Department</mat-card-title>
+        <form [formGroup]="Form">
+            <mat-card-content>
+                <mat-form-field aria-selected="true" appearance="fill">
+                    <mat-label>Department Name</mat-label>
+                    <input type="email" matInput formControlName="department" placeholder="Ex. HR" >
+                    <mat-error *ngIf="true">
+                        Please enter a department!
+                    </mat-error>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button type="submit" (click)="addDepartment()" color="primary">Add</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

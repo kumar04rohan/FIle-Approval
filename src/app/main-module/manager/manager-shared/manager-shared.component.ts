@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
-import { displayModel } from '../../approval/approval.component';
+import { displayModel } from '../../landing-page/display.model';
 import { ViewDialogComponent } from '../../my-uploads/view-dialog/view-dialog.component';
 
 @Component({
@@ -40,7 +40,7 @@ export class ManagerSharedComponent implements OnInit {
       this.noFiles = false;
       for (let data of this.files) {
         const status = this.getApprovalStatus(data.is_approved);
-        const dataElement = {id: data.id, name:data.name, version:data.version, status:status};
+        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id};
         dataSource.push(dataElement);
       }
       this.dataSource = dataSource;

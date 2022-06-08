@@ -202,4 +202,9 @@ export class HttpService {
     const url = environment.APIs.subscribe;
     return this.httpClient.post(url, data);
   }
+
+  addDepartment(name:string) {
+    const url = environment.APIs.addDepartment;
+    return this.httpClient.post(url, {name:name})
+  }
 }
