@@ -1,21 +1,15 @@
 <div class="header-container">
-    <div class="left-section">
-        <div class="logo">
-            <img src="../../../assets/images/alpha.png" alt="logo">
-        </div>
-        <div class="title">
-            File Approval Portal
-        </div>
+  <div class="left-section">
+    <div class="logo">
+      <img src="../../../assets/images/alpha.png" alt="logo" />
     </div>
-    <div class="right-section">
-        <div class="header-btn" (click)="logout()" *ngIf="loggedIn">
-            Logout
-        </div>
-        <div class="header-btn"   *ngIf="!loggedIn" (click)="login()">
-            Login 
-        </div>
-        <div class="header-btn" (click)="subscribe()" [style.padding]="'0 7px'">
-            Subscribe
-        </div>
+    <div class="title">Sharing Portal</div>
+  </div>
+  <div class="right-section">
+    <div class="header-btn" (click)="logout()" *ngIf="loggedIn">Logout</div>
+    <div class="header-btn" *ngIf="!loggedIn" (click)="login()">Login</div>
+    <div class="header-btn" (click)="subscribe()" [style.padding]="'0 7px'">
+      Subscribe
     </div>
+  </div>
 </div>
