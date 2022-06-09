@@ -35,6 +35,7 @@ export const environment = {
     share: "https://practice4407.herokuapp.com/shared_file/fill_shared_file",
     getShared: "https://practice4407.herokuapp.com/shared_file/get_by_user_id/",
     getSingleFile: "https://practice4407.herokuapp.com/file/get/",
+    getSharedAdmin: "https://practice4407.herokuapp.com/shared_file/get_all_for_admin/",
   },
   production: false
 };

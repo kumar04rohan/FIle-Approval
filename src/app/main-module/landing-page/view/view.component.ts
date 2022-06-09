@@ -37,7 +37,7 @@ export class ViewComponent implements OnInit {
   downloadFile() {
     const e = document.createElement('a');
     e.href = this.url;
-    e.download = this.data.name+"docx";
+    e.download = this.data.name +"docx";
     document.body.appendChild(e);
     e.click();
     document.body.removeChild(e);

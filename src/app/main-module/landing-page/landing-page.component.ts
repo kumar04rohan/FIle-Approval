@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/app/services/http.service';
 import { displayModel } from './display.model';
+import { displayModel2 } from './display2.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +20,7 @@ export class LandingPageComponent implements OnInit {
     'department',
     'view_download',
   ];
-  dataSource!: displayModel[];
+  dataSource!: displayModel2[];
   viewDoc = false;
   noFiles = true;
   constructor(private httpService: HttpService, private router:Router) {}
@@ -43,9 +44,11 @@ export class LandingPageComponent implements OnInit {
     console.log(this.files.length, "len")
     if (this.files.length > 0) {
       this.noFiles = false;
+      let ind = 0
       for (let data of this.files) {
-        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id};
+        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id, index:ind};
         dataSource.push(dataElement);
+        ind = ind +1;
       }
       this.dataSource = dataSource;
     }
@@ -55,10 +58,9 @@ export class LandingPageComponent implements OnInit {
   }
   
   downloadDoc(index:number) {
-    console.log("sas")
     const url = this.files[index].path;
     const name = this.files[index].name;
-    console.log(url, name, this.files)
+    // console.log(url, name, this.files)
     const e = document.createElement('a');
     e.href = url;
     e.download = name+"docx";
@@ -75,7 +77,6 @@ export class LandingPageComponent implements OnInit {
   }
 
   view(id:number) {
-
     this.router.navigate(['view/'+id]);
   }
 

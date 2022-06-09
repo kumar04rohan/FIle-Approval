@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
-import { displayModel } from '../landing-page/display.model';
+import { displayModel2 } from '../landing-page/display2.model';
 
 @Component({
   selector: 'app-internal-files',
@@ -18,7 +18,7 @@ export class InternalFilesComponent implements OnInit {
     'department',
     'view_download',
   ];
-  dataSource!: displayModel[];
+  dataSource!: displayModel2[];
   viewDoc = false;
   noFiles = true;
   constructor(private httpService: HttpService, private router:Router) {}
@@ -42,9 +42,11 @@ export class InternalFilesComponent implements OnInit {
     console.log(this.files.length, "len")
     if (this.files.length > 0) {
       this.noFiles = false;
+      let ind = 0;
       for (let data of this.files) {
-        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id};
+        const dataElement = {id: data.id, name:data.name, version:data.version, department:data.tag_id, index:ind};
         dataSource.push(dataElement);
+        ind = ind + 1;
       }
       this.dataSource = dataSource;
     }
@@ -54,7 +56,6 @@ export class InternalFilesComponent implements OnInit {
   }
   
   downloadDoc(index:number) {
-    console.log("sas")
     const url = this.files[index].path;
     const name = this.files[index].name;
     console.log(url, name, this.files)

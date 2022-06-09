@@ -171,6 +171,18 @@ export class HttpService {
     })
   }
 
+  getSharedAdminFile() {
+    const getSharedFileUrl = environment.APIs.getSharedAdmin;
+    return new Promise((resolve) => {
+      this.httpClient.get<any>(getSharedFileUrl).subscribe(
+        (res) => {
+          resolve(res);
+          console.log(res.SharedFile.path, "ser")
+        }
+      )
+    })
+  }
+
   getDeniedManagerFile() {
     const getDeniedFileUrl = environment.APIs.getDenied;
     return new Promise((resolve) => {
