@@ -33,6 +33,7 @@ body {
 th {
   color: black;
   font-size: 1rem;
+  text-align: center;
 }
 
 .mat-icon {
@@ -50,4 +51,18 @@ th {
   width: 50px;
 }
 
+.mat-header-cell {
+  color: black;
+  font-size: 1rem;
+}
+
+td {
+  text-align: center;
+}
+
+@media screen and (max-width:500px) {
+  .mat-header-cell {
+    font-size: 0.8rem;
+  }
+}
 

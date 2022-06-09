@@ -31,6 +31,10 @@ table {
   width: 50px;
 }
 
+.mat-header-cell {
+  text-align: center;
+}
+
 @media screen and (max-width:500px) {
   table {
       width: 98%;

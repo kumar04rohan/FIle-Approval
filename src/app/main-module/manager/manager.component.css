@@ -19,3 +19,7 @@ a {
 .ham {
     padding: 3px;
 }
+
+.mat-header-cell {
+    text-align: center;
+}

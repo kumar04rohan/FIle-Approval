@@ -12,3 +12,7 @@ th {
     color: black;
     font-size: 1rem;
   }
+
+.mat-header-cell {
+  text-align: center;
+}

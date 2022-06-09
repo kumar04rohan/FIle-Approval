@@ -11,3 +11,6 @@ table {
 .container {
   height: 100%;
 }
+.mat-header-cell {
+  text-align: center;
+}
